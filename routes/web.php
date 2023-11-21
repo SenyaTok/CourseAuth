@@ -36,3 +36,5 @@ Route::post("/cours",[CourseController::class,"create_course"]);
 Route::post("/category",[CourseController::class,"create_categories"]);
 
 Route::get("/application/{id_application}/confirm", [ApplicationController::class,"confirm"]);
+
+Route::get
