@@ -77,7 +77,7 @@
             <div class="container">
                 <h2 class="mb-3">Наши курсы</h2>
                 <div class="d-flex">
-                    @foreach ($all_courses as $item)
+                    @foreach ($courses as $item)
                         <div class="card" style="width: 18rem;">
                             <img src="/images/{{ $item->image }}" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -91,8 +91,10 @@
                     @endforeach
                 </div>
             </div>
+            <br>
+            <div class="container w-50">	{{ $courses->withQueryString()->links('pagination::bootstrap-5') }}</div> 
         </section>
-
+        {{-- строчка сверху 95, 80 (courses), внизу 124 (courses) пагинация --}}
         <section id="enroll">
             <div class="container">
                 <form class="w-50 my-0 mx-auto" action="/enroll" method="POST">
@@ -119,7 +121,7 @@
                     <div class="mb-3">
                         <label for="name" class="form-label">Выберите курс</label>
                         <select class="form-select" name="course">
-                            @foreach ($all_courses as $item)
+                            @foreach ($courses as $item)
                                 <option value="{{ $item->id }}">{{ $item->title }}</option>
                             @endforeach
                         </select>

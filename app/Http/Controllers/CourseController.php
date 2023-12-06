@@ -10,22 +10,18 @@ class CourseController extends Controller
 {
     public function index()
     {
-        $courses = Course::all();
-
-        return view("index",[
-            "all_courses"=>$courses
-        ]);
-        
+        $courses = Course::paginate(3);
+        return view('index', compact('courses'));
     }
 
     public function create_course(Request $request)
     {
-
+       
         $request->validate([
             "title" => "required|max:50",
             "description" => "required",
             "cost" => "required|numeric",
-            "duration" => "required|digits:value",
+            "duration" => "required|numeric",
             "category_id" => "required",
 
         ],[ 
@@ -38,17 +34,21 @@ class CourseController extends Controller
             "title.max"=>"Название курса должно содержать не больше 50 символов",
             
             "cost.numeric"=>"Цена должна состоять из цифр",
+            "duration.numeric"=>"Длительность должна состоять из цифр",
+
 
         ]);
 
         $course_info = $request->all();
+        // dd($course_info);
+
 
         Course::create([
             "title"=> $course_info["title"],
             "description"=> $course_info["description"],
             "cost"=> $course_info["cost"],
             "duration"=> $course_info["duration"],
-            "category_id"=> $course_info["category"],
+            "category_id"=> $course_info["category_id"],
 
         ]);
 
@@ -73,6 +73,8 @@ class CourseController extends Controller
 
         return redirect("/admin");
     }
+
+
 }
 
 

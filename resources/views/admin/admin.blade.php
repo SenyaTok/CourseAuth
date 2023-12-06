@@ -109,12 +109,12 @@
                     </div>
                     <div class="mb-3">
                         <label for="name" class="from-label">Категория курса</label>
-                        <select class="from-select" name="category">
+                        <select class="from-select" name="category_id">
                             @foreach ($categories as $item)
                                 <option value="{{ $item->id }}">{{ $item->title }}</option>
                             @endforeach
                         </select>
-                        @error('category')
+                        @error('category_id')
                             <div class="alert alert-danger mt-1" role="alert">
                                 {{ $message }}
                             </div>
