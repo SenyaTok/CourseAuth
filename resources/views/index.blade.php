@@ -73,6 +73,21 @@
                 </div>
             </div>
         </section>
+
+        <section class="container">
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Категории курсов
+                </a>
+              
+                <ul class="dropdown-menu">
+                @foreach($categories as $category)
+                  <li><a class="dropdown-item" href="category_filter/{{$category->id}}">{{$category->title}}</a></li>
+                @endforeach
+                </ul>
+              </div>
+        </section>
+
         <section id="courses">
             <div class="container">
                 <h2 class="mb-3">Наши курсы</h2>

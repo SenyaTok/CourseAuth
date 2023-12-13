@@ -64,7 +64,7 @@
         </section>
         <section id="enroll">
             <div class="container">
-                <form class="w-50 my-0 mx-auto" action="/cours" method="POST" enctype="multipart/form-data">
+                <form class="w-50 my-0 mx-auto" action="/cours_create" method="POST" enctype="multipart/form-data">
                     @csrf
                     <h2 class="m-3">Создание курса</h2>
                     <div class="mb-3">
@@ -127,7 +127,7 @@
         </section>
         <section id="enroll">
             <div class="container">
-                <form class="w-50 my-0 mx-auto" action="/category" method="POST">
+                <form class="w-50 my-0 mx-auto" action="/category_create" method="POST">
                     @csrf
                     <h2 class="m-3">Создать категорию курса</h2>
                     <div class="mb-3">

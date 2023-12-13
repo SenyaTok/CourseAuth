@@ -11,7 +11,19 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::paginate(3);
-        return view('index', compact('courses'));
+
+        $categories = Category::all();  // 
+
+        return view("index", compact("courses","categories")); //
+    }
+
+    public function category_filter($id)    //
+    {
+        $category = Category::findOrFail($id);  //
+
+        $courses = $category->courses()->paginate(3);   //
+
+        return view("category_filter", compact("courses","category"));  //
     }
 
     public function create_course(Request $request)

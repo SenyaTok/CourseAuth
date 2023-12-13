@@ -24,7 +24,7 @@ class UserController extends Controller
     
     public function signin_valid(Request $request)
     {
-        $user = $request->all();
+        $user = $request->all();    //получаем все данные из запроса с помощью метода $request->all() и сохраняем их в переменную $user.
         // dd($user);
         $request->validate([
             "email"=> "required|email",
